@@ -92,8 +92,8 @@ JS: Helper functions. When i have some functionality that is not linked to any s
         this.goToStore = this.goToStore.bind(this)
     }
 ```
-- super() has to be added when the constructor is called in a component. This is to run ReactComponent so we can extend with our component features.
-- this.goToStore = this.goToStore.bind(this) -> Here, it looks for the goToStore method, and sets to its own self, but binding it to this, which inside the constructor, is the component itself. This has to be done to all methods of the constructor. 
+- `super()` has to be added when the constructor is called in a component. This is to run ReactComponent so we can extend with our component features.
+- `this.goToStore = this.goToStore.bind(this)` -> Here, it looks for the `goToStore()` method, and sets to its own self, but binding it to this, which inside the constructor, is the component itself. This has to be done to all methods of the constructor. 
 
 
 ## REACT EVENTS
@@ -119,12 +119,10 @@ When pattern matches exactly `/`, load component StorePicker.
 
 ### REACT ROUTER 4
 **************
-- 2 ways to change the page. 
-- one way is to use <Redirect to="/somewhere/else" />
-- through the imperitive API (.transitionTo()) which allows to transition from one page to other. 
-- When we have the router in the components' context, we can find context.router.transitionTo() in the context and use it to navigate to the page we want. In react all is client side, so it uses HTML5 pushState, which allows for pages to transition without reloading.
+There are two ways to move to another the page with react router, one way is to use `<Redirect to="/somewhere/else" />`. Another is to use the the imperative API (`.transitionTo()`) which allows to transition from one page to other. 
+- When we have the router in the components' context, we can find `context.router.transitionTo()` in the context and use it to navigate to the page we want. In react all is client side, so it uses HTML5 pushState, which allows for pages to transition without reloading.
 
-- how to use the Router in a component. Because the <BrowserRouter /> is the parent of the whole structure, it is possible to access it from any child component in application. In order to transition from a component we need to surface the router from the component. The way to do this in react is through context. What it does is to make available to the lower level when declared to the top level. But not to be abused since it will create global components.
+- how to use the Router in a component. Because the `<BrowserRouter />` is the parent of the whole structure, it is possible to access it from any child component in application. In order to transition from a component we need to surface the router from the component. The way to do this in react is through context. What it does is to make available to the lower level when declared to the top level. But not to be abused since it will create global components.
 
 
 ## REACT CONTEXT
