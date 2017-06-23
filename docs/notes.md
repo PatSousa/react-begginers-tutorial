@@ -54,6 +54,25 @@ In *Stateless functional components, props are passed as an argument and since i
 ********
 In React you want to stay way from touching the DOM as much as possible. Because the way react works is that we modify the data, we render out the JSX and are handsoff touching the DOM, letting react do that for us.
 
+To create a component:
+```
+class ComponentName extends React.Component {
+    // if you need to add methods out of render or initialize
+    constructor(){ 
+        super();
+    }
+    
+    //any methods
+
+    render(){
+        return ()
+    }
+}
+
+export default ComponentName;
+```
+
+
 Other characteristics of React worth keeping in mind:
 - Dynamically providing data to components -> Use *props*
 Inside a component, *this* is the component.
@@ -62,7 +81,7 @@ Inside a component, *this* is the component.
 - When REACT changed to ES6 extend syntax, it does not implicit bind all the methods on our component to the component itself. There are several ways to achieve this, one is to use the constructor of the component. The constructor of the component is the thing that runs when that component is created (see below). The other possible way is to go to where the event is declared and add `onSubmit={this.goToStore.bind(this)}`. This will bind the goToStore to the this, which inside render() is the component itself. Another way to do it, its to use the arrow function, onSubmit={(e} => this.goToStore(e)}. The downside of doing it on the event call is that if we were to render 7 or 8 submits on a page is that an individual function for every single component that gets rendered. As a thumb rule, everytime `this` should be used inside your methods, you need to add the binding to the component.
 -To add default value when 1st loading do not use property `value` because that will be tied to the state. Use instead `defaultValue=""`.
 
--JS: Helper functions. When i have some functionality that is not linked to any specific component and should be reused accross the application. Create helpers functions.
+JS: Helper functions. When i have some functionality that is not linked to any specific component and should be reused accross the application. Create helpers functions.
 
 
 ## REACT constructor
